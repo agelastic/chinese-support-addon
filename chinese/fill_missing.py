@@ -58,7 +58,7 @@ def fill_sounds(collection, view_key):
 
                 # write back to note from dict and flush
                 for f in Sound_fields + Sound_Mandarin_fields + Sound_Cantonese_fields:
-                    if note_dict.has_key(f) and note_dict[f] <> note[f]:
+                    if note_dict.has_key(f) and note_dict[f] is not None and note_dict[f] <> note[f]:
                         note[f] = note_dict[f]
                 note.flush()
     mw.progress.finish()
@@ -133,7 +133,7 @@ def fill_pinyin(collection, view_key):
             def write_back(fields):
                 num_updated = 0
                 for f in fields:
-                    if note_dict.has_key(f) and note_dict[f] <> note[f]:
+                    if note_dict.has_key(f) and note_dict[f] is not None and note_dict[f] <> note[f]:
                         note[f] = note_dict[f]
                         num_updated+=1
                 return num_updated
@@ -220,7 +220,7 @@ def fill_translation(collection, view_key):
 
             def write_back(fields):
                 for f in fields:
-                    if note_dict.has_key(f) and note_dict[f] <> note[f]:
+                    if note_dict.has_key(f) and note_dict[f] is not None and note_dict[f] <> note[f]:
                         note[f] = note_dict[f]
                 return
 
@@ -277,11 +277,11 @@ def fill_simp_trad(collection, view_key):
 
             # write back to note from dict and flush
             for f in Traditional_fields:
-                if note_dict.has_key(f) and note_dict[f] <> note[f]:
+                if note_dict.has_key(f) and note_dict[f] is not None and note_dict[f] <> note[f]:
                     note[f] = note_dict[f]
                     d_success+=1
             for f in Simplified_fields:
-                if note_dict.has_key(f) and note_dict[f] <> note[f]:
+                if note_dict.has_key(f) and note_dict[f] is not None and note_dict[f] <> note[f]:
                     note[f] = note_dict[f]
                     d_success+=1
             note.flush()
@@ -323,7 +323,7 @@ def fill_silhouette(collection, view_key):
 
             # write back to note from dict and flush
             for f in Silhouette_fields:
-                if note_dict.has_key(f) and note_dict[f] <> note[f]:
+                if note_dict.has_key(f) and note_dict[f] is not None and note_dict[f] <> note[f]:
                     note[f] = note_dict[f]
                     d_success+=1
             note.flush()
