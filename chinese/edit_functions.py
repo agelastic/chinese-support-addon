@@ -298,9 +298,9 @@ def translate_local(text, lang):
             res += u"❖ %s[%s] %s\n" % (text, pinyin, definition)
     else:
         for (pinyin, definition, cl, alt) in defs:
-            res += " \t"+definition+"\n"        
+            res += definition+"\n"
 
-    res = res.replace("\n", "\n<br>")
+    res = res.replace("\n", "<br>")
     res = local_dict_colorize(res)
     return res
 
